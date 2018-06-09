@@ -1,5 +1,5 @@
 
-my $project = "$*CWD".IO.basename";
+my $project = "$*CWD".IO.basename;
 
 copy-local-file "../$project", '/tmp/';
 
