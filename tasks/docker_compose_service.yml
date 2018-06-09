@@ -1,0 +1,34 @@
+---
+ - name: install docker-compose
+   package:
+     name: docker-compose
+
+ - name: "create directory for project"
+   file:
+     path: "{{ item.root_dir }}"
+     state: directory
+     recurse: yes
+   with_items:
+     - "{{ docker_services }}"
+
+ - name: "deploy systemd service"
+   template:
+     src: "{{ item.unit_template }}"
+     dest: "/etc/systemd/system/{{ item.name}}.service"
+   with_items:
+     - "{{ docker_services }}"
+
+ - name: "deploy docker compose"
+   template:
+     src: "{{ item.compose_template }}"
+     dest: "{{ item.root_dir}}/docker-compose.yml"
+   with_items:
+     - "{{ docker_services }}"
+
+ - name: "We need autostart?"
+   systemd:
+     enabled: "{{ item.enabled }}"
+     daemon_reload: yes
+     name: "{{ item.name }}"
+   with_items:
+     - "{{ docker_services }}"

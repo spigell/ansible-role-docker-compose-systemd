@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-role-docker-compose-systemd
+  vars:
+    docker_services:
+    - name: test
+      enabled: yes
+      root_dir: /srv/docker/test-service
+      compose_template: examples/test.yml.j2
+      unit_template: examples/test.service.j2

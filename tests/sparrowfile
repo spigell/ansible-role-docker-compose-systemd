@@ -1,0 +1,12 @@
+
+my $project = "$*CWD".IO.basename";
+
+copy-local-file "../$project", '/tmp/';
+
+package-install 'ansible';
+
+bash "ansible-playbook /tmp/$project/tests/playbook.yml", %(
+  envvars   => %(
+    ANSIBLE_ROLES_PATH => '/tmp'
+  )
+);
