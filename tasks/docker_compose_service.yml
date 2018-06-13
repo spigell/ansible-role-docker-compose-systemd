@@ -27,7 +27,7 @@
 
  - name: "We need autostart?"
    systemd:
-     enabled: "{{ item.enabled }}"
+     enabled: "{{ item.enabled | default('yes') }}"
      daemon_reload: yes
      name: "{{ item.name }}"
    with_items:

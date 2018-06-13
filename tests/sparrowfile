@@ -3,6 +3,8 @@ my $project = "$*CWD".IO.basename;
 
 copy-local-file "../$project", '/tmp/';
 
+directory-delete "/tmp/$project/.git";
+
 package-install 'ansible';
 
 bash "ansible-playbook /tmp/$project/tests/playbook.yml", %(
