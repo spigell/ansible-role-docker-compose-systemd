@@ -29,6 +29,10 @@ name of your service.
 
 Indicates autostart of service. Default is `yes`.
 
+  - need_restart (optional)
+
+Indicates need of restart action when templates changes. Default is `no`.
+
   - root_dir (required)
 
 directory where docker-compose file will be lying.

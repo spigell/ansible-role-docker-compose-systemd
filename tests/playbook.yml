@@ -7,6 +7,14 @@
     docker_services:
     - name: test
       enabled: no
+      need_restart: no
       root_dir: /srv/docker/test-service
+      compose_template: examples/test.yml.j2
+      unit_template: examples/test.service.j2
+
+    - name: test2
+      enabled: yes
+      need_restart: yes
+      root_dir: /srv/docker/test-service2
       compose_template: examples/test.yml.j2
       unit_template: examples/test.service.j2

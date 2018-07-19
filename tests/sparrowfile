@@ -1,4 +1,3 @@
-
 my $project = "$*CWD".IO.basename;
 
 copy-local-file "../$project", '/tmp/';
