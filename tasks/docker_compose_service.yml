@@ -49,4 +49,3 @@
       - "{{ service.results }}"
     loop_control:
       label: "{{ item.item.name }}; changed = {{ item.changed }}; reason: need restart = {{ need_restart }}"
-

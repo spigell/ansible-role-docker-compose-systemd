@@ -16,6 +16,7 @@ all variables for the role must be in list named `docker_services`:
     docker_services:
     - name: test
       enabled: no
+      need_restart: yes
       root_dir: /srv/docker/test-service
       compose_template: examples/test.yml.j2
       unit_template: examples/test.service.j2
@@ -59,7 +60,7 @@ Example Playbook
 
     - hosts: localhost
       roles:
-         - { role: spigell.ansible-role-docker-compose-systemd }
+         - { role: spigell.docker-compose-systemd }
 
 Testing
 -------
