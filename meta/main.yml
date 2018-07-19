@@ -15,3 +15,6 @@ galaxy_info:
   galaxy_tags: 
     - docker
     - systemd
+
+
+allow_duplicates: true
